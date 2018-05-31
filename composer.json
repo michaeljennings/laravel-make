@@ -1,6 +1,8 @@
 {
   "name": "michaeljennings/laravel-make",
   "description": "An application to make the laravel 'make' commands globally available.",
+  "keywords": ["laravel"],
+  "license": "MIT",
   "authors": [
     {
       "name": "Michael Jennings",
@@ -14,6 +16,10 @@
   },
   "require": {
     "laravel/framework": "^5.0"
+  },
+  "extra": {
+    "component": "package",
+    "frameworks": ["Laravel 5"]
   },
   "bin": [
     "laravel-make"
