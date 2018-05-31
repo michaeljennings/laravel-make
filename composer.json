@@ -1,0 +1,21 @@
+{
+  "name": "michaeljennings/laravel-make",
+  "description": "An application to make the laravel 'make' commands globally available.",
+  "authors": [
+    {
+      "name": "Michael Jennings",
+      "email": "michael.jennings91@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "GML\\LaravelMake\\": "src/"
+    }
+  },
+  "require": {
+    "laravel/framework": "^5.0"
+  },
+  "bin": [
+    "laravel-make"
+  ]
+}
