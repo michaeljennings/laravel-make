@@ -15,7 +15,7 @@ is in the $PATH environment variable.
 
 ## Installing Per Project
 
-To install on a per project basis run `composer require phpunitmichaeljennings/laravel-make`.
+To install on a per project basis run `composer require michaeljennings/laravel-make`.
 
 Or add the package to you `composer.json` file.
 
