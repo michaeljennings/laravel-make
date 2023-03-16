@@ -11,8 +11,13 @@
 |
 */
 
-$app = new \GML\LaravelMake\Application(
+$app = new \MichaelJennings\LaravelMake\Application(
     realpath(__DIR__.'/../')
+);
+
+$app->singleton(
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    Illuminate\Foundation\Exceptions\Handler::class
 );
 
 date_default_timezone_set('Europe/London');

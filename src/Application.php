@@ -1,46 +1,19 @@
 <?php
 
-namespace GML\LaravelMake;
+namespace MichaelJennings\LaravelMake;
 
-use RunTimeException;
 use Illuminate\Foundation\Application as BaseApplication;
+use Symfony\Component\Console\Input\ArgvInput;
 
 class Application extends BaseApplication
 {
     /**
-     * The console application bootstrappers.
-     *
-     * @var array
+     * {@inheritdoc}
      */
-    protected static $bootstrappers = [];
-
-    /**
-     * Get the application namespace.
-     *
-     * @return string
-     *
-     * @throws \RuntimeException
-     */
-    public function getNamespace()
+    public function getNamespace(): string
     {
-        if (! is_null($this->namespace)) {
-            return $this->namespace;
-        }
+        $group = (new ArgvInput)->getFirstArgument();
 
-        // Check if we are in the root of a laravel application.
-        if (file_exists(getcwd() . 'composer.json')) {
-            $composer = json_decode(file_get_contents(getcwd() . 'composer.json'), true);
-
-            foreach ((array)data_get($composer, 'autoload.psr-4') as $namespace => $path) {
-                foreach ((array)$path as $pathChoice) {
-                    if (realpath(app_path()) == realpath(base_path() . '/' . $pathChoice)) {
-                        return $this->namespace = $namespace;
-                    }
-                }
-            }
-        }
-
-        // Else set the namespace to the default
-        return $this->namespace = 'App';
+        return Config::getNamespace($group) ?: 'App';
     }
 }
