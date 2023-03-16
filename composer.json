@@ -11,11 +11,11 @@
   ],
   "autoload": {
     "psr-4": {
-      "GML\\LaravelMake\\": "src/"
+      "MichaelJennings\\LaravelMake\\": "src/"
     }
   },
   "require": {
-    "laravel/framework": "^5.0"
+    "laravel/framework": ">=5.0"
   },
   "extra": {
     "component": "package",
@@ -23,5 +23,10 @@
   },
   "bin": [
     "laravel-make"
-  ]
+  ],
+  "config": {
+    "allow-plugins": {
+      "kylekatarnls/update-helper": false
+    }
+  }
 }

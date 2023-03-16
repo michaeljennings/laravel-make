@@ -1,6 +1,6 @@
 <?php
 
-namespace GML\LaravelMake;
+namespace MichaelJennings\LaravelMake;
 
 use Exception;
 use GML\LaravelMake\Commands\ConsoleMakeCommand;
@@ -28,21 +28,6 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        ConsoleMakeCommand::class,
-        ControllerMakeCommand::class,
-        EventMakeCommand::class,
-        JobMakeCommand::class,
-        ListenerMakeCommand::class,
-        MailMakeCommand::class,
-        MiddlewareMakeCommand::class,
-        MigrateMakeCommand::class,
-        ModelMakeCommand::class,
-        NotificationMakeCommand::class,
-        PolicyMakeCommand::class,
-        ProviderMakeCommand::class,
-        RequestMakeCommand::class,
-        SeederMakeCommand::class,
-        TestMakeCommand::class,
     ];
 
     /**
@@ -51,16 +36,6 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $bootstrappers = [];
-
-    /**
-     * Register the Closure based commands for the application.
-     *
-     * @return void
-     */
-    protected function commands()
-    {
-        //
-    }
 
     /**
      * Report the exception to the exception handler.
@@ -83,6 +58,5 @@ class Kernel extends ConsoleKernel
     protected function renderException($output, Exception $e)
     {
         dd($e);
-        throw $e;
     }
 }
