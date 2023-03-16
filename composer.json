@@ -15,7 +15,8 @@
     }
   },
   "require": {
-    "laravel/framework": ">=5.0"
+    "php": ">=8.0",
+    "laravel/framework": ">=9.0"
   },
   "extra": {
     "component": "package",

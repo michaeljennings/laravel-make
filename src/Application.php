@@ -2,32 +2,18 @@
 
 namespace MichaelJennings\LaravelMake;
 
-use RunTimeException;
 use Illuminate\Foundation\Application as BaseApplication;
+use Symfony\Component\Console\Input\ArgvInput;
 
 class Application extends BaseApplication
 {
     /**
-     * The console application bootstrappers.
-     *
-     * @var array
+     * {@inheritdoc}
      */
-    protected static $bootstrappers = [];
-
-    /**
-     * Get the application namespace.
-     *
-     * @return string
-     *
-     * @throws \RuntimeException
-     */
-    public function getNamespace()
+    public function getNamespace(): string
     {
-        try {
-            parent::getNamespace();
-        } catch (RuntimeException $e) {
-            // Else set the namespace to the default
-            return $this->namespace = 'App';
-        }
+        $group = (new ArgvInput)->getFirstArgument();
+
+        return Config::getNamespace($group) ?: 'App';
     }
 }
